@@ -1,0 +1,15 @@
+.group-container {
+
+    span.selected {
+        font-weight: 500;
+    }
+
+
+    &.nested {
+        margin-left: 1rem;
+    
+       
+    }
+
+}
+

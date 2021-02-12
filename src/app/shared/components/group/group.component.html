@@ -1,0 +1,4 @@
+<div class="group-container" [class.nested]="group.children.length ==0" (click)="select($event)" [class.selected]="selected">
+    <mat-icon class="mat-icon-rtl-mirror"> {{selected ? 'folder' : 'folder_open'}}</mat-icon>
+    <span [class.selected]="selected">{{group.name}}</span>
+</div>
