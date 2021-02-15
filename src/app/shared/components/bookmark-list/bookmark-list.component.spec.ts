@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+import { MaterialModule } from 'src/app/material/material.module';
 
 import { BookmarkListComponent } from './bookmark-list.component';
 
@@ -8,9 +11,14 @@ describe('BookmarkListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BookmarkListComponent ]
+      imports: [
+        StoreModule.forRoot({}),
+        BrowserAnimationsModule,
+        MaterialModule
+      ],
+      declarations: [BookmarkListComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -6,7 +6,7 @@ import { combineLatest, Observable } from 'rxjs';
 import { AppState } from 'src/app/app.state';
 import { Bookmark } from '../../models/bookmark.model';
 import { GROUP_ROOT_NODE } from '../../reducers/group.reducer';
-import { BookmarkEditDetailsComponent } from '../bookmark-edit-details/bookmark-edit-details.component';
+import { BookmarkDetailsComponent } from '../bookmark-details/bookmark-details.component';
 import * as BookmarkActions from './../../actions/boookmark.action';
 
 @Component({
@@ -29,26 +29,30 @@ export class BookmarkListComponent implements OnInit {
   ngOnInit(): void {
     combineLatest(this.bookmarkRepo$, this.selectedGroupData$).subscribe(([data, selectedGroup]) => {
 
-      console.log('Updating list...')
       this.selectedGroup = selectedGroup;
-      this.items = Object.values(data).filter(bookmark => (bookmark.group !== null && bookmark.group == this.selectedGroup) || (this.selectedGroup == GROUP_ROOT_NODE && bookmark.group == null));
+      if (data != null && data.values != null) {
+        this.items = Object.values(data).filter(bookmark => (bookmark.group !== null && bookmark.group == this.selectedGroup) || (this.selectedGroup == GROUP_ROOT_NODE && bookmark.group == null));
+      }
 
-      console.log(this.items);
     });
 
   }
 
   addBookmark($event) {
-    this.openAddBookmarkDialog();
+    this.openBookmarkDialog("Add new bookmark", true);
 
   }
 
-  openAddBookmarkDialog(): void {
+  openBookmarkDialog(title: string, enabled: boolean): void {
 
-    const dialogRef = this.dialog.open(BookmarkEditDetailsComponent, {
+    const dialogRef = this.dialog.open(BookmarkDetailsComponent, {
       minWidth: '25%',
       height: 'fit-content',
-      data: { group: this.selectedGroup || GROUP_ROOT_NODE }
+      data: {
+        bookmark: { name: '', url: '', group: this.selectedGroup || GROUP_ROOT_NODE },
+        title: title,
+        enabled: enabled
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {

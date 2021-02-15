@@ -1,16 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatNestedTreeNode, MatTreeModule, MatTreeNode } from '@angular/material/tree';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { MaterialModule } from 'src/app/material/material.module';
-import { GroupComponent } from '../group/group.component';
 
-import { BookmarkTreeComponent } from './bookmark-tree.component';
+import { BookmarkDetailsComponent } from './bookmark-details.component';
 
-describe('BookmarkTreeComponent', () => {
-  let component: BookmarkTreeComponent;
-  let fixture: ComponentFixture<BookmarkTreeComponent>;
+describe('BookmarkEditDetailsComponent', () => {
+  let component: BookmarkDetailsComponent;
+  let fixture: ComponentFixture<BookmarkDetailsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -19,17 +17,21 @@ describe('BookmarkTreeComponent', () => {
         BrowserAnimationsModule,
         MaterialModule
       ],
-      declarations: [BookmarkTreeComponent,
-        MatTreeNode,
-        MatNestedTreeNode,
-        GroupComponent,
-      ]
+      providers: [
+
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+        {
+          provide: MatDialogRef,
+          useValue: {}
+        },
+      ],
+      declarations: [BookmarkDetailsComponent]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BookmarkTreeComponent);
+    fixture = TestBed.createComponent(BookmarkDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

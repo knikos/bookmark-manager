@@ -1,12 +1,24 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { TestBed } from '@angular/core/testing';
+import { MatTreeModule } from '@angular/material/tree';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
+import { BookmarkManagerWrapperComponent } from './shared/components/bookmark-manager-wrapper/bookmark-manager-wrapper.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
+      imports: [
+        StoreModule.forRoot({}),
+        BrowserAnimationsModule,
+        MatTreeModule
       ],
+      declarations: [
+        AppComponent,
+        BookmarkManagerWrapperComponent
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });
 
@@ -22,10 +34,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('bookmark-manager');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('bookmark-manager app is running!');
-  });
 });

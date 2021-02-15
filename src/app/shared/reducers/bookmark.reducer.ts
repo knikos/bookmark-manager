@@ -11,29 +11,48 @@ const initialState: Bookmark[] = !environment.sampleData ? [] : [
         name: 'Github',
         url: 'https://github.com/',
         group: 'group-sample-1'
-    }, {
-        id: 'bookmark-sample-2',
-        name: 'Gitlab 2',
-        url: 'https://gitlab.com/',
-        group: 'group-sample-2'
     },
     {
-        id: 'bookmark-sample-3',
-        name: 'Gitlab 3',
-        url: 'https://gitlab.com/',
+        id: 'bookmark-sample-2',
+        name: 'AWS tutorial',
+        url: 'https://aws.amazon.com/getting-started/hands-on/',
         group: 'group-sample-3'
     },
     {
-        id: 'bookmark-sample-4',
-        name: 'Gitlab 4',
-        url: 'https://gitlab.com/',
-        group: 'group-sample-11'
+        id: 'bookmark-sample-3',
+        name: 'Angular docs',
+        url: 'https://angular.io/',
+        group: 'group-sample-4'
     },
     {
+        id: 'bookmark-sample-4',
+        name: 'Java Basic',
+        url: 'https://www.tutorialspoint.com/java/index.htm',
+        group: 'group-sample-6'
+    },
+
+    {
         id: 'bookmark-sample-5',
-        name: 'Gitlab 5',
-        url: 'https://gitlab.com/',
-        group: 'group-sample-11'
+        name: 'Bloomberg',
+        url: 'https://www.bloomberg.com/',
+        group: 'group-sample-8'
+    }, {
+        id: 'bookmark-sample-6',
+        name: 'Sky sports',
+        url: 'https://www.skysports.com/',
+        group: 'group-sample-9'
+    },
+    {
+        id: 'bookmark-sample-7',
+        name: 'Maps',
+        url: 'https://maps.google.com/',
+        group: 'group-root'
+    },
+    {
+        id: 'bookmark-sample-8',
+        name: 'Youtube',
+        url: 'https://www.youtube.com/',
+        group: 'group-root'
     },
 ];
 

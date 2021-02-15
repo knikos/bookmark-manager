@@ -1,23 +1,23 @@
-<h1 mat-dialog-title>Edit bookmark details</h1>
+<h1 mat-dialog-title>{{data.title}}</h1>
 <div mat-dialog-content>
     <mat-form-field>
         <mat-label>Name</mat-label>
-        <input matInput [(ngModel)]="data.name">
+        <input matInput [(ngModel)]="data.bookmark.name" [disabled]="!data.enabled">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Url</mat-label>
-        <input matInput [(ngModel)]="data.url">
+        <input matInput [(ngModel)]="data.bookmark.url" [disabled]="!data.enabled">
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Group</mat-label>
-        <mat-select [(ngModel)]="data.group">
+        <mat-select [(ngModel)]="data.bookmark.group" [disabled]="!data.enabled">
             <mat-option *ngFor="let group of groups" [value]="group.id">
-                {{group.name}}
+                {{group?.name}}
             </mat-option>
         </mat-select>
     </mat-form-field>
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onCancelClick()">Cancel</button>
-    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+    <button mat-button [mat-dialog-close]="data.bookmark" [disabled]="!isFormValid()" cdkFocusInitial>Ok</button>
 </div>

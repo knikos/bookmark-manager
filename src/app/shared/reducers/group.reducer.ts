@@ -5,6 +5,8 @@ import { environment } from './../../../environments/environment';
 
 export const GROUP_ROOT_NODE = 'group-root';
 const initialState: Group[] = !environment.sampleData ?
+
+    // default tree stucture
     [{
         id: GROUP_ROOT_NODE,
         name: 'All bookmarks',
@@ -12,6 +14,7 @@ const initialState: Group[] = !environment.sampleData ?
         selected: true,
         children: []
     },]
+    //  tree stucture with sample data
     : [
         {
             id: GROUP_ROOT_NODE,
@@ -24,31 +27,38 @@ const initialState: Group[] = !environment.sampleData ?
                     name: 'Useful software',
                     path: '/software',
                     selected: false,
+                    children: []
+                },
+                {
+                    id: 'group-sample-2',
+                    name: 'Tutorials',
+                    path: '/tutorials',
+                    selected: false,
                     children: [
                         {
                             id: 'group-sample-3',
-                            name: 'Bitbucket',
-                            path: '/news',
+                            name: 'Cloud',
+                            path: '/',
                             selected: false,
                             children: []
                         },
                         {
                             id: 'group-sample-4',
-                            name: 'Gitlab',
-                            path: '/news',
+                            name: 'Frontend',
+                            path: '',
                             selected: false,
                             children: []
                         }
                         , {
                             id: 'group-sample-5',
-                            name: 'Open source',
-                            path: '/news',
+                            name: 'Backend',
+                            path: '/backend',
                             selected: false,
                             children: [
                                 {
                                     id: 'group-sample-6',
-                                    name: 'Postman',
-                                    path: '/news',
+                                    name: 'Java',
+                                    path: '/java',
                                     selected: false,
                                     children: []
                                 }
@@ -57,16 +67,23 @@ const initialState: Group[] = !environment.sampleData ?
                     ]
                 },
                 {
-                    id: 'group-sample-2',
+                    id: 'group-sample-7',
                     name: 'News',
                     path: '/news',
                     selected: false,
                     children: [
 
                         {
-                            id: 'group-sample-11',
-                            name: 'NY Times',
-                            path: '/news',
+                            id: 'group-sample-8',
+                            name: 'Financial',
+                            path: '/financial',
+                            selected: false,
+                            children: []
+                        },
+                        {
+                            id: 'group-sample-9',
+                            name: 'Sports',
+                            path: '/sports',
                             selected: false,
                             children: []
                         }
@@ -83,12 +100,10 @@ export function groupReducer(state: Group[] = initialState, action: GroupAction.
             return [...state, action.payload];
 
         case ActionType.GROUP_UPDATE_ACTION:
-            newState[action.payload.id] = action.payload;
-            return Object.assign({}, state, newState);
+            return [action.payload];
 
         case ActionType.GROUP_REMOVE_ACTION:
-            let i = state.indexOf(state[action.payload.id]);
-            delete state[i];
+            // TODO
             return state;
         default:
             return state;

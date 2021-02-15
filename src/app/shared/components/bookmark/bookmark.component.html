@@ -1,10 +1,7 @@
 <div class="bookmark-container">
     <mat-icon matListAvatar>bookmark</mat-icon>
 
-    <h5 matLine class="title"> {{bookmark.name}}</h5>
-    <!-- <p matLine>
-        {{bookmark.details}}
-    </p> -->
+    <h5 matLine class="title" (click)="onClickBookmark()"> {{bookmark?.name}}</h5>
 
     <div class="button-container">
 

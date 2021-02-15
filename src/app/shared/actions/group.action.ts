@@ -1,7 +1,7 @@
-  
-import {Action} from '@ngrx/store';
+
+import { Action } from '@ngrx/store';
 import * as Constants from '../constants/constants';
-import {Group} from '../models/group.model';
+import { Group } from '../models/group.model';
 
 export class Add implements Action {
     readonly type = Constants.GROUP_ADD_ACTION;

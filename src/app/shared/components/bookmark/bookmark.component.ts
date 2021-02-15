@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActionsSubject, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/app.state';
 import { Bookmark } from '../../models/bookmark.model';
-import { BookmarkEditDetailsComponent } from '../bookmark-edit-details/bookmark-edit-details.component';
+import { BookmarkDetailsComponent } from '../bookmark-details/bookmark-details.component';
 import * as BookmarkActions from './../../actions/boookmark.action';
 
 @Component({
@@ -24,23 +24,32 @@ export class BookmarkComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  onClickBookmark() {
+    this.openBookmarkDialog("Bookmark details", false);
+  }
+
   onOpenInNewTab($event) {
     window.open("//" + this.bookmark.url, '_blank');
   }
-  onEdit($event) {
 
-    this.openDialog();
+  onEdit($event) {
+    this.openBookmarkDialog('Edit bookmark details', true);
   }
+
   onDelete($event) {
     this.store.dispatch(new BookmarkActions.Remove(this.bookmark));
-
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(BookmarkEditDetailsComponent, {
+  openBookmarkDialog(title: string, enabled: boolean): void {
+    const dialogRef = this.dialog.open(BookmarkDetailsComponent, {
       minWidth: '25%',
       height: 'fit-content',
-      data: this.bookmark
+      data: {
+        bookmark: Object.assign({}, this.bookmark),
+        title: title,
+        enabled: enabled
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -52,4 +61,5 @@ export class BookmarkComponent implements OnInit {
       }
     });
   }
+
 }
