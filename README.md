@@ -25,6 +25,29 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Demo
+
+For the following demo the application is using the default sample data. Some of the implemented features are presented below:
+
+Adding a new bookmark is possible via the cross-button on the bottom right corner.  
+
+![](add-bookmark.gif)
+
+From the side navigation, a group can be created by clicking next to an existing group:  
+
+![](add-category.gif)
+This new group will be placed under the one, on which the group add symbol has been triggered.  
+
+In the next short video, browsing though different categories is displayed in mobile viewport.  
+![](mobile-browse.gif)
+
+Moreover, you can edit an existing bookmark by clicking on the edit option (pencil) as shown below:  
+![](mobile-edit-bookmark.gif)
+
+Last, a user can see the details of a bookmark simply by clicking on it:  
+
+![](show-info.gif)
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
