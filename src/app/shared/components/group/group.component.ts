@@ -19,7 +19,9 @@ export class GroupComponent implements OnInit {
     }
 
     select($event: string) {
-      this.selected = !this.selected;
-      this.selectEvent.emit(this.group.id);
+      if(!this.selected) {
+        this.selected = true;
+        this.selectEvent.emit(this.group.id);
+      }
     }
 }

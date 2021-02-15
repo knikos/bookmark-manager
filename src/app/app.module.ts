@@ -6,32 +6,37 @@ import { BookmarkComponent } from './shared/components/bookmark/bookmark.compone
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BookmarkTreeComponent } from './shared/components/bookmark-tree/bookmark-tree.component';
-import { MatTreeModule } from '@angular/material/tree';
-
-import {MatIconModule} from '@angular/material/icon';
 import { StoreModule } from '@ngrx/store';
 import { bookmarkReducer } from './shared/reducers/bookmark.reducer';
 import { groupReducer } from './shared/reducers/group.reducer';
 import { GroupComponent } from './shared/components/group/group.component';
+import { BookmarkListComponent } from './shared/components/bookmark-list/bookmark-list.component';
+import { selectedGroupReducer } from './shared/reducers/selected-group-id.reducer';
+import { MaterialModule } from './material/material.module';
+import { BookmarkEditDetailsComponent } from './shared/components/bookmark-edit-details/bookmark-edit-details.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookmarkComponent,
     BookmarkTreeComponent,
-    GroupComponent
+    GroupComponent,
+    BookmarkListComponent,
+    BookmarkEditDetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatTreeModule,
-    MatIconModule,
+    MaterialModule,
+    FormsModule,
     StoreModule.forRoot({
       bookmarks: bookmarkReducer,
-      groups: groupReducer
+      groups: groupReducer,
+      selectedGroup: selectedGroupReducer,
     }
-      )
+    )
   ],
   entryComponents: [BookmarkTreeComponent],
   providers: [],

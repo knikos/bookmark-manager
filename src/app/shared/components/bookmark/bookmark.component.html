@@ -1,1 +1,21 @@
-<p>bookmark works!</p>
+<div class="bookmark-container">
+    <mat-icon matListAvatar>bookmark</mat-icon>
+
+    <h5 matLine class="title"> {{bookmark.name}}</h5>
+    <!-- <p matLine>
+        {{bookmark.details}}
+    </p> -->
+
+    <div class="button-container">
+
+        <button mat-icon-button (click)="onOpenInNewTab($event)">
+            <mat-icon>open_in_new</mat-icon>
+        </button>
+        <button mat-icon-button (click)="onEdit($event)">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="onDelete($event)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+.bookmark-list-container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+
+    .list-header{
+        padding: 1%;
+    }
+    mat-nav-list {
+        flex: 1;
+    }
+
+    .add-button-container {    
+        padding: 1%;
+        align-self: flex-end;
+
+        button {
+            
+            height:48px !important;
+            width:48px !important;
+            font-size:48px !important;
+            line-height:48px !important;
+        }
+        ::ng-deep .mat-icon{
+            height:48px !important;
+            width:48px !important;
+            font-size:48px !important;
+            line-height:48px !important;
+        }
+    }
+}

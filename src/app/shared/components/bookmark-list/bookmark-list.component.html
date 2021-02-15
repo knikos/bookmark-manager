@@ -1,0 +1,16 @@
+<div class="bookmark-list-container">
+    <div class="list-header">
+        <h2>Bookmarks of {{selectedGroup}}</h2>
+    </div>
+    <mat-nav-list>
+        <a mat-list-item *ngFor="let item of items;" [disableRipple]="true">
+            <app-bookmark [bookmark]="item" style="width: 100%;"></app-bookmark>
+            <mat-divider></mat-divider>
+        </a>
+    </mat-nav-list>
+    <div class="add-button-container">
+        <button mat-icon-button (click)="addBookmark($event)">
+            <mat-icon>add_circle_outline</mat-icon>
+        </button>
+    </div>
+</div>
