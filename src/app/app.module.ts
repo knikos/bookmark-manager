@@ -9,12 +9,13 @@ import { BookmarkTreeComponent } from './shared/components/bookmark-tree/bookmar
 import { StoreModule } from '@ngrx/store';
 import { bookmarkReducer } from './shared/reducers/bookmark.reducer';
 import { groupReducer } from './shared/reducers/group.reducer';
-import { GroupComponent } from './shared/components/group/group.component';
+import { GroupAddDialog, GroupComponent } from './shared/components/group/group.component';
 import { BookmarkListComponent } from './shared/components/bookmark-list/bookmark-list.component';
 import { selectedGroupReducer } from './shared/reducers/selected-group-id.reducer';
 import { MaterialModule } from './material/material.module';
-import { BookmarkEditDetailsComponent } from './shared/components/bookmark-edit-details/bookmark-edit-details.component';
+import { BookmarkDetailsComponent } from './shared/components/bookmark-details/bookmark-details.component';
 import { FormsModule } from '@angular/forms';
+import { BookmarkManagerWrapperComponent } from './shared/components/bookmark-manager-wrapper/bookmark-manager-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { FormsModule } from '@angular/forms';
     BookmarkTreeComponent,
     GroupComponent,
     BookmarkListComponent,
-    BookmarkEditDetailsComponent,
+    BookmarkDetailsComponent,
+    GroupAddDialog,
+    BookmarkManagerWrapperComponent
   ],
   imports: [
     BrowserModule,
@@ -42,4 +45,7 @@ import { FormsModule } from '@angular/forms';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  mobileQuery: MediaQueryList;
+}
